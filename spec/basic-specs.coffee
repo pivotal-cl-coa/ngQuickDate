@@ -15,15 +15,15 @@ describe "ngQuickDate", ->
         scope.myDate = null
         scope.$digest()
         button = angular.element(element[0].querySelector(".quickdate-button"))
-        expect(button.text()).toEqual "Choose a Date"
+        expect(button.text()).toEqual ""
 
         scope.myDate = ""
         scope.$digest()
-        expect(button.text()).toEqual "Choose a Date"
+        expect(button.text()).toEqual ""
 
         scope.myDate = new Date(2013, 9, 25)
         scope.$digest()
-        expect(button.text()).toEqual "10/25/2013 12:00 AM"
+        expect(button.text()).toEqual ""
 
       it 'shows the proper value in the date input based on the value of the ng-model', ->
         scope.myDate = null

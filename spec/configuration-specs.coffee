@@ -10,7 +10,7 @@ describe "ngQuickDate", ->
         ngQuickDateDefaultsProvider.set('labelFormat', 'yyyy-MM-d')
         null
       ))
-      
+
       describe 'and given a basic datepicker', ->
         beforeEach(angular.mock.inject(($compile, $rootScope) ->
           scope = $rootScope
@@ -19,14 +19,14 @@ describe "ngQuickDate", ->
           scope.$digest()
         ))
         it 'should be labeled in the same format as it was configured', ->
-          expect($(element).find('.quickdate-button').text()).toEqual('2013-08-1')
+          expect($(element).find('input').val()).toEqual('2013-08-1')
 
     describe 'Given that a non-default date format is configured', ->
       beforeEach(module('ngQuickDate', (ngQuickDateDefaultsProvider) ->
         ngQuickDateDefaultsProvider.set('dateFormat', 'yy-M-d')
         null
       ))
-        
+
       describe 'and given a basic datepicker', ->
         beforeEach angular.mock.inject ($compile, $rootScope) ->
           element = buildBasicDatepicker($compile, $rootScope, new Date(Date.parse('1/1/2013 1:00 PM')))
